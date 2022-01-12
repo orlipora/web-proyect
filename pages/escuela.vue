@@ -1,4 +1,5 @@
-<template>
+ <template>          
+               <!-- MODIFICADO 1 -->
   <div style="padding: 20px">
     <!-- padding deja una separacion del margen -->
     <h3>Inscribir Alumnos</h3>
