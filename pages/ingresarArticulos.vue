@@ -1,4 +1,5 @@
 <template>
+           <!-- ----MODIICADO 1------ -->
   <div style="padding: 20px">
     <!-- padding deja una separacion del margen -->
     <h3>Ingresar Articulos Nuevos</h3>
@@ -66,7 +67,7 @@
         <th>Tor1</th>
         <th>Tor2</th>
       </tr>
-      <tr v-for="(articulo, index) in articulos" :key="'alumno1' + index">
+      <tr v-for="(articulo, index) in articulos" :key="'articulo' + index">
         <!-- en esta fila pongo los datos <td> -->
         <td>{{ index }}</td>
         <td>{{ articulo.nombre }}</td>
@@ -102,24 +103,22 @@ export default {
           v4: "",
           zocalo: "",
           tor1: "",
-          tor2: "",
+          tor2: null,
       },
       articulos: [],
     }; //return lleva ;//
   }, // methods va FUERA del DATA//
- /* mounted() {
-    this.articulos = JSON.parse(
-      window.localStorage.getItem("alumnado1")
-    ); tomamos los datos de localstorage y los volvemos a 
-     cargar cuando iniia la pagina 
-  },*/
+  mounted() {
+    this.articulos = JSON.parse (window.localStorage.getItem("catalogo"));
+     //tomamos los datos de localstorage y los volvemos a cargar cuando iniia la pagina 
+  },
   methods: {
     agregarNuevosArticulos() {
       //PRIMERA FORMA//
       // const nuevoAlumnoCopy = JSON.parse(JSON.stringify(this.nuevoAlumno)); //
       const { ...nuevoArticuloCopy } = this.nuevoArticulo; //SEGUNDA FORMA DE SOLUCIONAR, le pongo {} porque es un objeto//
       this.articulos.push(nuevoArticuloCopy);
-      //window.localStorage.setItem("alumnado1", JSON(this.articulos)); con esto ingresamos datos a localstorage//
+     window.localStorage.setItem("catalogo",JSON.stringify (this.articulos)) // con esto ingresamos datos a localstorage//
       // const alumnos= JSON.parse(window.localStorage.getItem("alumnado"));//
       /*CUANDO TENGA QUE UTILIZAR LAS VARIABLES que estan dentro del (data) por eje. (nombre,edad,agregarNuevosAlumnos) en donde esta el HTML  o sea dentro de las etiq- template ,las coloco como estan (nombre,edad) .Pero si las uso debajo del DATA  o sea dentro del codigo JS le debo agregar la palabra ( this. )  */
       /* PERO SEGUIMOS con la REACTIVIDAD NO DESEADA , pero ya sabemos cual es la linea que no funciona bien ( y pasa porque estamos trabajando con objetos)  y la tenemos dentro de un methods , podemos agregar algo antes para solucionala .Hay dos formas ,la primera
