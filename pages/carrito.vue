@@ -67,6 +67,7 @@ data(){
         ],
        };
 } ,
+/* una computada es una variable, la diferencia con las Variables de Vue es que las computadas normalmente transforman la variable o hacen algún tipo de cálculo antes de devolverla..     Es importante saber que las computadas nunca pueden recibir un parámetro desde fuera de la función. Si necesitas pasar un valor a una computada tienes que crear un método.    Otra cosa importante de las computadas es que siempre tienen que devolver un valor. No puede existir computada sin return.   */
 computed:{
      total(){
        var total = 0;
